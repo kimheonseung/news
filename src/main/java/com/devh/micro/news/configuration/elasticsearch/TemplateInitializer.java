@@ -40,6 +40,7 @@ public class TemplateInitializer {
 
     @Autowired
     public void setup() {
+        // {"properties":{"articleId":{"type":"keyword","index":true},"press":{"type":"keyword"},"mainCategory":{"type":"keyword"},"subCategory":{"type":"keyword"},"originalLink":{"type":"keyword"},"pubMillis":{"type":"long"},"title":{"type":"text"},"summary":{"type":"text"}}}
         var indexOps = operations.indexOps(News.class);
 
         if(!indexOps.existsTemplate(NewsIndex.TEMPLATE_ALIAS.getValue())) {

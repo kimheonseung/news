@@ -2,6 +2,7 @@ package com.devh.micro.news.service;
 
 import com.devh.micro.news.constant.NewsField;
 import com.devh.micro.news.dto.NewsDTO;
+import com.devh.micro.news.dto.NewsSearchParamsDTO;
 import com.devh.micro.news.entity.News;
 
 import java.util.ArrayList;
@@ -12,6 +13,7 @@ import java.util.Map;
 
 public interface NewsService {
     boolean indexAll(List<News> newsList);
+    List<NewsDTO> search(NewsSearchParamsDTO newsSearchParamsDTO);
 
     /* 검색엔진 벌크 색인을 위해 각 엔티티를 맵으로 변환하기 위한 메소드 */
     default Map<String, Object> entityToMap(News news) {

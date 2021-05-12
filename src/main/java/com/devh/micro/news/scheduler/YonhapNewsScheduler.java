@@ -46,7 +46,7 @@ public class YonhapNewsScheduler {
     private Thread mScheduleThread;
 
     /* 매 10분 마다 스케쥴 실행 */
-    @Scheduled(cron = "0 */10 * * * *")
+//    @Scheduled(cron = "0 */10 * * * *")
     public void scheduleStart() {
         if(mScheduleThread == null || !mScheduleThread.isAlive()) {
             mScheduleThread = new Thread(new YonhapNewsSchedulerThread());

@@ -1,5 +1,7 @@
 package com.devh.micro.news.service;
 
+import com.devh.micro.news.dto.NewsDTO;
+import com.devh.micro.news.dto.NewsSearchParamsDTO;
 import com.devh.micro.news.entity.News;
 import com.devh.micro.news.util.ElasticsearchCreator;
 import lombok.RequiredArgsConstructor;
@@ -20,6 +22,7 @@ public class NewsServiceImpl implements NewsService {
 
     /* DI */
     private final RestHighLevelClient restHighLevelClient;
+    private final NewsSearchService newsSearchService;
 
     @Override
     public boolean indexAll(List<News> newsList) {
@@ -42,5 +45,14 @@ public class NewsServiceImpl implements NewsService {
         if(result)
             log.info("bulk success. doc count = " + newsList.size());
         return result;
+    }
+
+    @Override
+    public List<NewsDTO> search(NewsSearchParamsDTO newsSearchParamsDTO) {
+        newsSearchService.setNewsSearchParamsDTO(newsSearchParamsDTO);
+        log.info(newsSearchService.workSearchProcess());
+
+//        QueryBuilders.boolQuery().must(QueryBuilders.)
+        return null;
     }
 }

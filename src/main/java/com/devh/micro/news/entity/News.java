@@ -44,8 +44,8 @@ public class News {
     private String originalLink;
     @Field(type = FieldType.Long, name = "pubMillis")
     private Long pubMillis;
-    @Field(type = FieldType.Keyword, name = "title")
+    @Field(type = FieldType.Text, name = "title")
     private String title;
-    @Field(type = FieldType.Keyword, name = "summary")
+    @Field(type = FieldType.Text, name = "summary")
     private String summary;
 }
